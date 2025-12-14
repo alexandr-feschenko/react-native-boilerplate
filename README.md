@@ -37,21 +37,7 @@ cd MyNewApp
 
 ---
 
-### Step 3 — Initialize Version Control (Optional)
-
-If you plan to use Git for version control, initialize a new repository and make the first commit.
-
-```
-git init
-git add .
-git commit -m "Initial boilerplate"
-```
-
-This ensures a clean working environment before any renaming or additional configuration.
-
----
-
-### Step 4 — Rename the Project
+### Step 3 — Rename the Project
 
 By default, the boilerplate name is **RNBoilerplate**.  
 You can rename it to match your new app’s name by using the `react-native-rename` package.
@@ -65,10 +51,28 @@ npx react-native-rename "MyNewApp" -b com.mycompany.mynewapp
 If Git has not been initialized, you can skip the Git status check:
 
 ```
-npx react-native-rename "MyNewApp" --skipGitStatusCheck
+npx react-native-rename "MyNewApp" -b com.mycompany.mynewapp --skipGitStatusCheck
 ```
 
 ---
+
+### Step 4 — Initialize Version Control (Optional)
+
+After renaming the project, initialize Git and connect your new repository.
+
+```
+git init
+git add .
+git commit -m "Initial commit"
+git branch -M main
+git remote add origin https://github.com/github-name/my-new-app.git
+git push -u origin main
+```
+
+This ensures a clean working environment before any renaming or additional configuration.
+
+---
+
 
 ### Step 5 — Install Dependencies
 
