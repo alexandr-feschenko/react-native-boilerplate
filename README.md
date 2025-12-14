@@ -1,97 +1,158 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# React Native Boilerplate
 
-# Getting Started
+This repository provides a personal boilerplate for creating new React Native applications.  
+It contains a clean and scalable structure, TypeScript configuration, and common setup tools such as ESLint and Prettier.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+---
 
-## Step 1: Start Metro
+## 🚀 Overview
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+The purpose of this boilerplate is to save setup time when starting a new React Native project.  
+It includes everything required to begin development immediately, following a consistent architecture and coding style.
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+---
 
-```sh
-# Using npm
-npm start
+## 📘 How to Use
 
-# OR using Yarn
-yarn start
+### Step 1 — Create a New Project
+
+To start a new project based on this boilerplate, create a new folder by using the following command from your terminal:
+
+```
+npx degit alexandr-feschenko/react-native-boilerplate.git MyNewApp
 ```
 
-## Step 2: Build and run your app
+This will copy the boilerplate files into a new directory called **MyNewApp**.  
+The repository history will not be included.
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+---
 
-### Android
+### Step 2 — Navigate to the Project Folder
 
-```sh
-# Using npm
-npm run android
+Once the folder has been created, open it in your terminal or IDE:
 
-# OR using Yarn
-yarn android
+```
+cd MyNewApp
 ```
 
-### iOS
+---
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
+### Step 3 — Initialize Version Control (Optional)
 
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
+If you plan to use Git for version control, initialize a new repository and make the first commit.
 
-```sh
-bundle install
+```
+git init
+git add .
+git commit -m "Initial boilerplate"
 ```
 
-Then, and every time you update your native dependencies, run:
+This ensures a clean working environment before any renaming or additional configuration.
 
-```sh
-bundle exec pod install
+---
+
+### Step 4 — Rename the Project
+
+By default, the boilerplate name is **RNBoilerplate**.  
+You can rename it to match your new app’s name by using the `react-native-rename` package.
+
+Example:
+
+```
+npx react-native-rename "MyNewApp" -b com.mycompany.mynewapp
 ```
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+If Git has not been initialized, you can skip the Git status check:
 
-```sh
-# Using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
+```
+npx react-native-rename "MyNewApp" --skipGitStatusCheck
 ```
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+---
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+### Step 5 — Install Dependencies
 
-## Step 3: Modify your app
+Install all required project dependencies using your preferred package manager.
 
-Now that you have successfully run the app, let's make changes!
+```
+npm install
+```
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+or
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+```
+yarn install
+```
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+---
 
-## Congratulations! :tada:
+### Step 6 — Run the Application
 
-You've successfully run and modified your React Native App. :partying_face:
+You can now start the app on your target platform.
 
-### Now what?
+For Android:
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
+```
+npx react-native run-android
+```
 
-# Troubleshooting
+For iOS:
 
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+```
+npx pod-install ios
+npx react-native run-ios
+```
 
-# Learn More
+---
 
-To learn more about React Native, take a look at the following resources:
+### Step 7 — Optional Build Cleanup
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+If you experience issues after renaming or modifying configuration files, you can clean cached builds.
+
+For Android, run:
+
+```
+cd android
+./gradlew clean
+cd ..
+```
+
+---
+
+## 📂 Folder Structure
+
+```
+src/
+ ├── components/       Reusable UI components  
+ ├── screens/          Main application screens  
+ ├── hooks/            Custom React hooks  
+ ├── store/            Redux store and slices  
+ ├── navigation/       Navigation setup
+```
+
+---
+
+## 🧩 Included Tools and Configurations
+
+- **TypeScript** — static typing for reliability and maintainability
+- **ESLint + Prettier** — linting and automatic formatting
+- **React Navigation** — basic navigation setup
+- **Redux Toolkit** — centralized state management
+- **Babel Configuration** — alias and modern syntax support
+- **.gitignore** — clean and optimized repository setup
+
+---
+
+## 🧠 Notes
+
+- Keep dependencies updated regularly with `npx react-native upgrade`.
+- Always run `npx pod-install` after adding new iOS packages.
+- Use `.env` files for environment variables and API keys.
+- Follow the provided folder structure for consistency and maintainability.
+
+---
+
+## 🧾 License
+
+This boilerplate is open to use and modify.  
+Created by **Alexandr Feschenko**.
