@@ -73,13 +73,6 @@ npx react-native-rename "MyNewApp" --skipGitStatusCheck
 ### Step 5 — Install Dependencies
 
 Install all required project dependencies using your preferred package manager.
-
-```
-npm install
-```
-
-or
-
 ```
 yarn install
 ```
