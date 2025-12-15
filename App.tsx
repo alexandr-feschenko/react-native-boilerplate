@@ -1,10 +1,11 @@
 import { Provider } from 'react-redux';
+import { StatusBar, useColorScheme } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
 
 import { store } from './src/store';
 import { DefaultAppTheme } from './src/theme/defaultTheme.ts';
+import { RootStack } from './src/navigation/RootNavigation.tsx';
 
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
@@ -13,21 +14,11 @@ function App() {
       <Provider store={store}>
         <NavigationContainer theme={DefaultAppTheme}>
           <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-          <AppContent />
+          <RootStack />
         </NavigationContainer>
       </Provider>
     </SafeAreaProvider>
   );
 }
-
-function AppContent() {
-  return <View style={styles.container}></View>;
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
 
 export default App;
